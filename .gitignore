@@ -2,3 +2,4 @@ test/
 ytTranscript/db.sqlite3
 ytTranscript/app/__pycache__/
 ytTranscript/ytTranscript/__pycache__/
+chromeextension/node_modules/

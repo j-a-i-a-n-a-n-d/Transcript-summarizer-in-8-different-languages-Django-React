@@ -2,7 +2,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from transformers import pipeline
 
 
-def list_languages(video_id):
+def list_languages(video_id) -> object:
     try:
         languages = YouTubeTranscriptApi.list_transcripts(video_id)
         return languages
@@ -11,19 +11,19 @@ def list_languages(video_id):
             "Invalid YouTube video ID or unable to retrieve transcripts.") from e
 
 
-def get_language_code(text):
+def get_language_code(text) -> str:
     return text.split()[0]
 
 
-def get_language_name(text):
+def get_language_name(text) -> str:
     return text.split()[1].split('[')[0]
 
 
-def languageFilter(word):
+def languageFilter(word) -> str:
     return word.strip('(').strip(')').strip('"')
 
 
-def get_trancriptsX(video_id, language):
+def get_trancriptsX(video_id, language) -> str:
     try:
         transcript_list = YouTubeTranscriptApi.get_transcript(
             video_id, languages=[language])
@@ -34,7 +34,7 @@ def get_trancriptsX(video_id, language):
             "Invalid YouTube video ID or unable to retrieve transcripts.") from e
 
 
-def get_summary(transcript):
+def get_summary(transcript) -> str:
     try:
         summariser = pipeline(
             "summarization",

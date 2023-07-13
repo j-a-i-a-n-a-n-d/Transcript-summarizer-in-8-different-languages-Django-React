@@ -2,17 +2,14 @@ import re
 import nltk
 import math
 from nltk.tokenize import word_tokenize
-
-# nltk.download('punkt')
+from deepmultilingualpunctuation import PunctuationModel
+model = PunctuationModel()
 
 
 # converting the input block to a list of sentences along with cleaning the text
-def clean_text(filename) -> list:
-    file = open(file=filename, mode='r')
-    filedata = file.readlines()
-    # print(filedata)
-    article = filedata[0].split(". ")
-    # print(article)
+def clean_text(filedata) -> list:
+    filedata = model.restore_punctuation(filedata)
+    article = filedata.split(". ")
     sentences = []
     for sentence in article:
         sentence = re.sub('[^a-zA-Z]', ' ', str(sentence))
@@ -100,7 +97,7 @@ def calc_IDF(text_data, freq_list) -> list:
 
 # calculating the TF-IDF score of each word in each sentence
 # {'id': 1, 'tfidf_score': 0.0, 'key': 'lorem'}
-def calc_TF_IDF(tf_scores, idf_scores):
+def calc_TF_IDF(tf_scores, idf_scores) -> list:
     tfidf_scores = []
     for j in idf_scores:
         for i in tf_scores:
@@ -114,7 +111,7 @@ def calc_TF_IDF(tf_scores, idf_scores):
     return tfidf_scores
 
 
-def sent_scores(tfidf_scores, sentences, text_data):
+def sent_scores(tfidf_scores, sentences, text_data) -> list:
     sent_data = []
     for txt in text_data:
         score = 0
@@ -131,10 +128,7 @@ def sent_scores(tfidf_scores, sentences, text_data):
     return sent_data
 
 
-# Generating the Summary
-
-
-def summary(sent_data):
+def summary(sent_data) -> str:  # Generating the Summary
     cnt = 0
     summary = []
     for t_dict in sent_data:
@@ -145,20 +139,3 @@ def summary(sent_data):
             summary.append(sent['sentence'])
     summary = ". ".join(summary)
     return summary
-
-
-def main():
-    sentences = clean_text("input.txt")
-    text_data = cnt_in_sent(sentences)
-    freq_list = freq_dict(sentences)
-    tf_scores = calc_TF(text_data, freq_list)
-    idf_scores = calc_IDF(text_data, freq_list)
-    tfidf_scores = calc_TF_IDF(tf_scores, idf_scores)
-    sent_data = sent_scores(tfidf_scores, sentences, text_data)
-    result = summary(sent_data)
-    print(result)
-
-
-if __name__ == "__main__":
-    main()
-# https://medium.com/spidernitt/how-to-build-a-text-summarizer-from-scratch-1a68e39558c4

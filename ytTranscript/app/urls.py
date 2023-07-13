@@ -22,4 +22,8 @@ urlpatterns = [
     path('getLanguages/', GetLanguagesView.as_view(), name='getLanguages'),
     path('getSummary/', GetSummaryView.as_view(), name='getSummary'),
     path('tfidfSummary/', TFIDFSummaryView.as_view(), name='tfidfSummary'),
+    path('getData/', TranscriptsSummaryListView.as_view(),
+         name='TranscriptsSummaryListView'),
+    path('getData/<str:url>/', TranscriptsSummaryListView.as_view(),
+         name='TranscriptsSummaryDetailView'),
 ]

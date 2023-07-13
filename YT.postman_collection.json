@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "bd582ed5-b43e-4977-bd15-1460c2403b7d",
+		"name": "YT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23432918"
+	},
+	"item": [
+		{
+			"name": "getLanguages/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"youtube_link\" : \"https://www.youtube.com/watch?v=Np6Z0mOH3g\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/getLanguages/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"getLanguages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSummary/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"youtube_link\" : \"https://www.youtube.com/watch?v=Np6Z0mOH3gg\",\r\n    \"language\" : \"en\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/getSummary/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"getSummary",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tfidfSummary/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"youtube_link\" : \"https://www.youtube.com/watch?v=fuhE6PYnRMc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/tfidfSummary/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tfidfSummary",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "helloworld/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/hello/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"hello",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

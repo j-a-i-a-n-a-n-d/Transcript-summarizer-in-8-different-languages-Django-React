@@ -19,5 +19,6 @@ from .views import *
 
 urlpatterns = [
     path('hello/', HelloWorldView.as_view(), name='hello'),
-    path('summarize/', SummarizeView.as_view(), name='summarize'),
+    path('getLanguages/', GetLanguagesView.as_view(), name='getLanguages'),
+    path('getSummary/', GetSummaryView.as_view(), name='getSummary'),
 ]

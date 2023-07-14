@@ -60,7 +60,7 @@ class GetSummaryView(APIView):
                 response = {
                     "url": youtube_model.url,
                     "summary": youtube_model.summary,
-                    "transcripts": youtube_model.transcript,
+                    "transcripts": youtube_model.transcripts,
                 }
                 return Response(response, status=status.HTTP_200_OK)
             transcripts = get_trancriptsX(youtube_link, lang)

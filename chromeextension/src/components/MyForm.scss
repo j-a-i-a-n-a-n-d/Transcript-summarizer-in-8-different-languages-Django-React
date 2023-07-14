@@ -1,0 +1,22 @@
+.form {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  // background-color: rgb(247, 174, 174);
+  button {
+    width: 100%;
+  }
+  #loading-logo {
+    width: 100px;
+    height: 100px;
+  }
+  .summary {
+    overflow: scroll;
+    height: 300px;
+    text-align: left;
+  }
+}

@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className='app-root'>
-      YT Transcript Summarizer
+      <span>YT Transcript Summarizer</span>
       <div id='youtube-logo' ref={animationContainerRef} />
       <MyForm />
     </div>

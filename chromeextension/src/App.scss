@@ -1,8 +1,16 @@
 .app-root {
+  padding: 5px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  span {
+    font-size: 24px;
+    font-weight: 900;
+    color: #342828;
+  }
   #youtube-logo {
     width: 100px;
     height: 100px;

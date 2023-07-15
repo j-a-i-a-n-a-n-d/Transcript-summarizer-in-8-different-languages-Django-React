@@ -59,7 +59,6 @@ function MyForm() {
         })
         .then((response) => {
           setSummary(response.data.summary);
-          // setSummary(response.data);
         })
         .catch((error) => {
           console.error(error);
@@ -109,10 +108,16 @@ function MyForm() {
   return (
     <>
       <div className='form'>
-        <input type='text' value={inputValue} onChange={handleInputChange} />
+        <input
+          type='text'
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder='Youtube Video Link...'
+          className='input-field'
+        />
         <label>
           <input type='radio' name='option' value='ExtractiveSummarization' />
-          Extractive Summarization
+          <span className='labs'>Extractive Summarization</span>
         </label>
         <label>
           <input
@@ -121,7 +126,7 @@ function MyForm() {
             value='AbstractiveSummarization'
             onClick={handleAbstractiveSummarization}
           />
-          Abstractive Summarization
+          <span className='labs'>Abstractive Summarization</span>
         </label>
         {showLanguageButtons && (
           <Select
@@ -135,7 +140,11 @@ function MyForm() {
         )}
         {isLoading && <div id='loading-logo' ref={animationContainerRef} />}
         <button onClick={handleSubmit}>Submit</button>
-        {summary !== '' && <div className='summary'>{summary}</div>}
+        {summary !== '' && (
+          <div className='summary'>
+            <span className='data'>{summary}</span>
+          </div>
+        )}
         {console.log(summary)}
       </div>
     </>

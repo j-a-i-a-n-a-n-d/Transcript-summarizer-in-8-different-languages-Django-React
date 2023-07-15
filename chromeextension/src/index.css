@@ -13,4 +13,7 @@ body {
     rgba(107, 255, 184, 1) 100%
   );
   background-repeat: no-repeat;
+  width: 400px;
+  height: 800px;
+  border-radius: 15px;
 }
